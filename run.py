@@ -1,7 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
-import pandas as pd
+# import pandas as pd
 
 # Defining the scope
 SCOPE = [
@@ -26,7 +26,11 @@ def add_food_entry():
     """
     food = input("Please enter the type of food you ate: ")
     feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: ")
-    date = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+    date = datetime.now().strftime("%d/%m/%Y")
+
+     # Create a new row of data + append to spreadsheet
+    new_row = [food, feeling, date]
+    goodfood.sheet1.append_row(new_row)
 
     print(f"Adding {food} to the food tracker with a value of {feeling} on {date}")
 
