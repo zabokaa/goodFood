@@ -32,7 +32,7 @@ def add_food_entry():
     new_row = [food, feeling, date]
     goodfood.sheet1.append_row(new_row)
 
-    print(f"Adding {food} to the food tracker with a value of {feeling} on {date}")
+    print(f"You added {food} to the food tracker with a value of {feeling} on {date}.")
 
 # CALL THE FUNCTION !!
 add_food_entry()
