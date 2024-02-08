@@ -18,15 +18,15 @@ client = gspread.authorize(SCOPED_CREDS)
 # Accessing the Google Sheets
 goodfood = client.open("goodfood")
 
-print("Welcome to your food tracker!")
+print("Welcome to your food tracker GOOD FOOD!")
 
 def add_food_entry():
     """
     Add a new food entry to the food tracker
     """
-    food = input("Please enter the type of food you ate: ")
-    feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: ")
-    date = datetime.now().strftime("%d/%m/%Y")
+    food = input("Please enter the type of food you ate: \n")
+    feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n")
+    date = datetime.now().strftime("%d/%m/%Y\n")
 
      # Create a new row of data + append to spreadsheet
     new_row = [food, feeling, date]
