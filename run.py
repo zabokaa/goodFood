@@ -1,6 +1,9 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
+# debugging error Heroku deployment
+import os
+import json
 
 # Defining the scope
 SCOPE = [
@@ -10,7 +13,13 @@ SCOPE = [
 ]
 
 # Use the credentials file to authorize the application
-CREDITS = Credentials.from_service_account_file('credits.json')
+
+# debugging error Heroku deployment
+creds_json = os.environ.get('CREDITS')
+creds_dict = json.loads(creds_json)
+CREDITS = Credentials.from_service_account_info(creds_dict)
+
+# CREDITS = Credentials.from_service_account_file('credits.json')
 SCOPED_CREDS = CREDITS.with_scopes(SCOPE)
 client = gspread.authorize(SCOPED_CREDS)
 
