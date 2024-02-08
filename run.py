@@ -16,6 +16,19 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 client = gspread.authorize(SCOPED_CREDS)
 
 # Accessing the Google Sheets
-food = client.open("goodfood")
+goodfood = client.open("goodfood")
 
 print("Welcome to your food tracker!")
+
+def add_food_entry():
+    """
+    Add a new food entry to the food tracker
+    """
+    food = input("Please enter the type of food you ate: ")
+    feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: ")
+    date = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+
+    print(f"Adding {food} to the food tracker with a value of {feeling} on {date}")
+
+# CALL THE FUNCTION !!
+add_food_entry()
