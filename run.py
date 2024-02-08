@@ -10,8 +10,8 @@ SCOPE = [
 ]
 
 # Use the credentials file to authorize the application
-CREDS = Credentials.from_service_account_file('credits.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+CREDITS = Credentials.from_service_account_file('credits.json')
+SCOPED_CREDS = CREDITS.with_scopes(SCOPE)
 client = gspread.authorize(SCOPED_CREDS)
 
 # Accessing the Google Sheets
