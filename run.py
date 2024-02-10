@@ -76,6 +76,7 @@ def delete_food_entry():
     print("You deleted a food entry")
 
 # CALL THE FUNCTION !!
+menu()
 add_food_entry()
 average_feeling()
 delete_food_entry()
