@@ -36,8 +36,8 @@ def menu():
     print( "1. Add a new food entry")  
     print( "2. See the average feeling of a type of food you ate")  
     print( "3. Delete one food entry")  
-    print( "Search for food entries by date")
-    print( "4. Exit")  
+    print( "4. Search for food entries by date")
+    print( "5. Exit")  
     menu_choice = input("Enter your choice: ")  
     if menu_choice == "1":  
           add_food_entry()
@@ -46,6 +46,8 @@ def menu():
     elif menu_choice == "3":
         delete_food_entry()
     elif menu_choice == "4":
+        search_by_date()
+    elif menu_choice == "5":
         print("Have a lovely day and see you soon!")
 
 def add_food_entry():
@@ -74,6 +76,12 @@ def delete_food_entry():
     Delete a food entry from the food tracker
     """
     print("You deleted a food entry")
+
+def search_by_date():
+    """
+    Search for food entries by date
+    """
+    print("You searched for food entries by date")
 
 # CALL THE FUNCTION !!
 menu()
