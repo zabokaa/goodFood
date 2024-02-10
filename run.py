@@ -28,6 +28,26 @@ goodfood = client.open("goodfood")
 
 print("Welcome to your food tracker GOOD FOOD!")
 
+def menu():  
+    """
+    Menu for the programme
+    """
+    print( "\nWhat do you want to do? \n")  
+    print( "1. Add a new food entry")  
+    print( "2. See the average feeling of a type of food you ate")  
+    print( "3. Delete one food entry")  
+    print( "Search for food entries by date")
+    print( "4. Exit")  
+    menu_choice = input("Enter your choice: ")  
+    if menu_choice == "1":  
+          add_food_entry()
+    elif menu_choice == "2":
+          average_feeling()
+    elif menu_choice == "3":
+        delete_food_entry()
+    elif menu_choice == "4":
+        print("Have a lovely day and see you soon!")
+
 def add_food_entry():
     """
     Add a new food entry to the food tracker
@@ -42,5 +62,20 @@ def add_food_entry():
 
     print(f"You added {food} to the food tracker with a value of {feeling} on {date}.")
 
+def average_feeling():
+    """
+    Calculate the average feeling of a type of food
+    """
+    food = input("Please enter the type of food you want to see the average feeling for: \n")
+    print(f"The average feeling for {food} is THIS TO BE CLACULATED")
+
+def delete_food_entry():
+    """
+    Delete a food entry from the food tracker
+    """
+    print("You deleted a food entry")
+
 # CALL THE FUNCTION !!
 add_food_entry()
+average_feeling()
+delete_food_entry()
