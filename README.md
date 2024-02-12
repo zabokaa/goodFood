@@ -10,6 +10,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 - [User Stories](#user-stories)
 - [Key Features](#key-features)
 - [Code Structure](#code-structure)
+- [Data Model](#data-model)
 - [Testing](#testing)
 - [Technologies](#technologies)
 - [Deployment](#deployment)
@@ -72,6 +73,14 @@ The code is structured into the following functions:
 - delete_food_entry(): Deletes a food entry.
 - search_by_date(): Searches for food entries by date.
 - print_with_frame(): Prints messages with a frame.
+
+## Data Model
+
+The data for the GoodFood Tracker is stored in a Google Sheets document. Each row in the sheet represents a food entry and contains the following columns:
+
+- Food: This column stores the type of food that was consumed. It's a string value that is input by the user.
+- Feeling: This column stores the user's feeling after consuming the food. It's an integer value between 1 and 5, where 1 represents feeling good and 5 represents feeling bad. This value is also input by the user.
+- Date: This column stores the date when the food was consumed. It's a string value in the format "dd/mm/yyyy", and it's automatically set to the current date when a new food entry is added.
 
 ### Future Features
 
