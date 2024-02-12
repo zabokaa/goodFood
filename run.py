@@ -50,7 +50,7 @@ def menu():
                 print("You can only enter values from 1 to 5. Try again.\n")
     menu_choice = input("Enter your choice: ")  
     """
-        Choose the function to run based on the user's choice
+        Choose the function to run based on the user's choice and call it
     """
     if menu_choice == 1:  
           add_food_entry()
@@ -94,9 +94,23 @@ def average_feeling():
     
 def delete_food_entry():
     """
-    Delete a food entry from the food tracker
+    Delete a food entry from the food tracker choose by name and date
     """
-    print("You deleted a food entry")
+    food_type = input("Please enter the type of food you want to delete: \n")
+    date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
+    rows = goodfood.sheet1.get_all_values()
+    # iterating over a list and access indeces
+    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type and row[2] == date]
+
+    if not matching_rows:
+        print(f"No entries found for {food_type} on {date}")
+        return
+
+    # delete the chosen food entry, reversed to avoid index errors !
+    for i in reversed(matching_rows):
+        goodfood.sheet1.delete_row(i)
+
+    print(f"You deleted the entries for {food_type} on {date}")
 
 def search_by_date():
     """
