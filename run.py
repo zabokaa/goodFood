@@ -35,7 +35,7 @@ def menu():
     # Loop to keep the menu running
     while True:
         print( "\nWhat do you want to do? \n")  
-        print( "\nChoose the according number between 1 and 5 \n")  
+        print( "Choose the according number between 1 and 5 \n")  
         print( "1. Add a new food entry")  
         print( "2. See the average feeling of a type of food you ate")  
         print( "3. Delete one food entry")  
@@ -71,7 +71,14 @@ def add_food_entry():
     """
     Add a new food entry to the food tracker
     """
-    food = input("Please enter the type of food you ate: \n").capitalize()
+    while True:
+        food = input("Please enter the type of food you ate: \n").capitalize()
+        if food.isalpha():
+            break
+        else:
+            print("You can only enter letters. Pls, try again.\n")
+
+    
     feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n")
     date = datetime.now().strftime("%d/%m/%Y")
 
