@@ -14,12 +14,9 @@ SCOPE = [
 
 # Use the credentials file to authorize the application
 
-# debugging error Heroku deployment
 creds_json = os.environ.get('CREDITS')
 creds_dict = json.loads(creds_json)
 CREDITS = Credentials.from_service_account_info(creds_dict)
-
-# CREDITS = Credentials.from_service_account_file('credits.json')
 SCOPED_CREDS = CREDITS.with_scopes(SCOPE)
 client = gspread.authorize(SCOPED_CREDS)
 
@@ -32,7 +29,6 @@ def menu():
     """
     Menu for the programme
     """
-    # Loop to keep the menu running
     while True:
         print( "\nWhat do you want to do? \n")  
         print( "Choose the according number between 1 and 5 \n")  
@@ -41,7 +37,7 @@ def menu():
         print( "3. Delete one food entry")  
         print( "4. Search for food entries by date")
         print( "5. Exit")  
-    # validation:
+
         while True:
                 try:
                     menu_choice = int(input("Enter your choice: "))
@@ -89,8 +85,6 @@ def add_food_entry():
                     print("You can only enter values from 1 to 5. Pls try again.\n")
    
     date = datetime.now().strftime("%d/%m/%Y")
-
-     # Create a new row of data + append to spreadsheet
     new_row = [food, feeling, date]
     goodfood.sheet1.append_row(new_row)
 
@@ -109,7 +103,7 @@ def average_feeling():
             print("You can only enter letters. Pls, try again.\n")
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
-    # debug ZeroDivisionError:
+
     if len(matching_rows) > 0:
         average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
         print_with_frame(f"The average feeling for {food_type} is {average_feeling}")
@@ -135,14 +129,13 @@ def delete_food_entry():
         except ValueError:
             print("Invalid date. The date should be in the dd/mm/yyyy format.")
     rows = goodfood.sheet1.get_all_values()
-    # iterating over a list and access indeces
+
     matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type.strip() and row[2].strip() == date]
 
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
         return
 
-    # delete the chosen food entry, reversed to avoid index errors !
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
 
