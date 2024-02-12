@@ -48,7 +48,7 @@ def menu():
                     print("You can only enter values from 1 to 5. Try again.\n")
             except ValueError:
                 print("You can only enter values from 1 to 5. Try again.\n")
-    menu_choice = input("Enter your choice: ")  
+
     """
         Choose the function to run based on the user's choice and call it
     """
