@@ -93,7 +93,12 @@ def average_feeling():
     Calculate the average feeling of a type of food
     """
     matching_rows = []
-    food_type = input("Please enter the type of food you want to see the average feeling for: \n").capitalize()
+    while True:
+        food_type = input("Please enter the type of food you want to see the average feeling for: \n").capitalize()
+        if food_type.isalpha():
+            break
+        else:
+            print("You can only enter letters. Pls, try again.\n")
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
     # debug ZeroDivisionError:
@@ -107,7 +112,12 @@ def delete_food_entry():
     """
     Delete a food entry from the food tracker choose by name and date
     """
-    food_type = input("Please enter the type of food you want to delete: \n").capitalize()
+    while True:
+        food_type = input("Please enter the type of food you want to delete: \n").capitalize()
+        if food_type.isalpha():
+            break
+        else:
+            print("You can only enter letters. Pls, try again.\n")
     date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
     rows = goodfood.sheet1.get_all_values()
     # iterating over a list and access indeces
