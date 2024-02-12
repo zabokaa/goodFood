@@ -90,7 +90,10 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - ### Input Validation and Error-Checking
 
-- [PEP8]: No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
+![validation1](.img/vali1.png)
+![validation2](.img/vali2.png)
+
+- [PEP8](.img/linter.png): No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 - Tested in Code Institute Heroku terminal and in my VS Code terminal while coding
 
@@ -126,7 +129,7 @@ Project is: finished
 4. Navigate to the "Deploy" section.
 5. Connect with GitHub and enter your repository name.
 6. Decide if you want to deploy manually or enable automatic deployment after every commit to GitHub.
-7. Once done, your application will be live at: `https://goodfood-bab2ce8696d3.herokuapp.com/`. Yippie !
+7. Once done, your application will be live. Yippie !
 
 ## Acknowledgements
 
