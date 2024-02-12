@@ -72,7 +72,7 @@ def add_food_entry():
     """
     food = input("Please enter the type of food you ate: \n")
     feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n")
-    date = datetime.now().strftime("%d/%m/%Y\n")
+    date = datetime.now().strftime("%d/%m/%Y")
 
      # Create a new row of data + append to spreadsheet
     new_row = [food, feeling, date]
