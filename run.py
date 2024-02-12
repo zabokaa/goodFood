@@ -1,7 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
-import matplotlib.pyplot as plt
 import os
 import json
 
@@ -40,18 +39,17 @@ def menu():
         print( "2. See the average feeling of a type of food you ate")  
         print( "3. Delete one food entry")  
         print( "4. Search for food entries by date")
-        print( "5. Plot feelings over time for a specific food type")
-        print( "6. Exit")  
+        print( "5. Exit")  
     # validation:
         while True:
                 try:
                     menu_choice = int(input("Enter your choice: "))
-                    if menu_choice > 0 and menu_choice < 7:
+                    if menu_choice > 0 and menu_choice < 6:
                         break
                     else:
-                        print("You can only enter values from 1 to 6. Try again.\n")
+                        print("You can only enter values from 1 to 5. Try again.\n")
                 except ValueError:
-                    print("You can only enter values from 1 to 6. Try again.\n")
+                    print("You can only enter values from 1 to 5. Try again.\n")
 
         """
             Choose the function to run based on the user's choice and call it
@@ -65,8 +63,6 @@ def menu():
         elif menu_choice == 4:
             search_by_date()
         elif menu_choice == 5:
-            plot_feelings_for_food()
-        elif menu_choice == 6:
             print("Have a lovely day, eat good food and see you soon!")
             break
 
@@ -164,25 +160,5 @@ def search_by_date():
     for row in matching_rows:
         print(f"Food: {row[0]}, Feeling: {row[1]}")
 
-def plot_feelings_for_food():
-    """
-    Plot feelings over time for a specific food type
-    """
-    food_type = input("Please enter the type of food you want to plot feelings for: \n").capitalize()
-    rows = goodfood.sheet1.get_all_values()
-    matching_rows = [row for row in rows if row[0] == food_type]
-
-    if not matching_rows:
-        print(f"No entries found for {food_type}")
-        return
-    dates = [datetime.strptime(row[2].strip(), "%d/%m/%Y") for row in matching_rows]
-    feelings = [int(row[1]) for row in matching_rows]
-    # Create the plot
-    plt.figure(figsize=(10, 6))
-    plt.plot(dates, feelings, marker='o')
-    plt.title(f"Feelings over time for {food_type}")
-    plt.xlabel("Date")
-    plt.ylabel("Feeling")
-    plt.show()
-
+# Call the menu function to run the programme
 menu()
