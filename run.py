@@ -39,6 +39,9 @@ def menu():
     print( "4. Search for food entries by date")
     print( "5. Exit")  
     menu_choice = input("Enter your choice: ")  
+    """
+        Choose the function to run based on the user's choice
+    """
     if menu_choice == "1":  
           add_food_entry()
     elif menu_choice == "2":
@@ -68,8 +71,11 @@ def average_feeling():
     """
     Calculate the average feeling of a type of food
     """
-    food = input("Please enter the type of food you want to see the average feeling for: \n")
-    print(f"The average feeling for {food} is THIS TO BE CLACULATED")
+    food_type = input("Please enter the type of food you want to see the average feeling for: \n")
+    rows = goodfood.sheet1.get_all_values()
+    average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
+    matching_rows = [row for row in rows if row[0] == food_type]
+    print(f"The average feeling for {food_type} is {average_feeling}")
 
 def delete_food_entry():
     """
