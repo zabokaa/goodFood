@@ -81,7 +81,8 @@ def add_food_entry():
     while True:
         try:
             feeling = int(input("How did you feel after eating the food? "
-                                "Please enter a number between 1=feeling good and 5= bad feeling: \n"))
+                                "Please enter a number between 1=feeling good "
+                                "and 5= feeling bad: \n"))
             if feeling > 0 and feeling < 6:
                 break
             else:
@@ -111,8 +112,12 @@ def average_feeling():
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
     if len(matching_rows) > 0:
-        average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
-        print_with_frame(f"The average feeling for {food_type} is {average_feeling}")
+        average_feeling = (
+            sum(int(row[1]) for row in matching_rows)
+            / len(matching_rows)
+        )
+        print_with_frame(f"The average feeling for {food_type} "
+                         "is {average_feeling}")
     else:
         print(f"No entries found for {food_type}")
 
@@ -122,7 +127,8 @@ def delete_food_entry():
     Delete a food entry from the food tracker choose by name and date
     """
     while True:
-        food_type = input("Please enter the type of food you want to delete: \n").capitalize()
+        food_type = input("Please enter the type of "
+                          "food you want to delete: \n").capitalize()
         if food_type.isalpha():
             break
         else:
@@ -134,15 +140,20 @@ def delete_food_entry():
             datetime.strptime(date, "%d/%m/%Y")
             break
         except ValueError:
-            print("Invalid date. The date should be in the dd/mm/yyyy format.")
+            print("Invalid date. The date should "
+                  "be in the dd/mm/yyyy format.")
     rows = goodfood.sheet1.get_all_values()
-    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type.strip() and row[2].strip() == date]
+    matching_rows = [
+        i for i, row in enumerate(rows, start=1)
+        if row[0] == food_type.strip() and row[2].strip() == date
+        ]
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
         return
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
-    print_with_frame(f"You deleted the entry/entries for {food_type} on {date}")
+    print_with_frame(f"You deleted the entry/entries "
+                     "for {food_type} on {date}")
 
 
 def search_by_date():
