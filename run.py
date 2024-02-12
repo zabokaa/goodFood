@@ -144,6 +144,21 @@ def search_by_date():
     """
     Search for food entries by date
     """
-    print("You searched for food entries by date")
+    while True:
+        date = input("Please enter the date of the food entries you want to search for (dd/mm/yyyy): \n")
+        try:
+            datetime.strptime(date, "%d/%m/%Y")
+            break
+        except ValueError:
+            print("Invalid date. The date should be in the dd/mm/yyyy format.")
+
+    rows = goodfood.sheet1.get_all_values()
+    matching_rows = [row for row in rows if row[2].strip() == date]
+    if not matching_rows:
+        print(f"No entries found on {date}")
+        return
+    
+    for row in matching_rows:
+        print(f"Food: {row[0]}, Feeling: {row[1]}")
 
 menu()
