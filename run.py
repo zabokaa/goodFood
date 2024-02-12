@@ -71,6 +71,7 @@ def average_feeling():
     """
     Calculate the average feeling of a type of food
     """
+    matching_rows = []
     food_type = input("Please enter the type of food you want to see the average feeling for: \n")
     rows = goodfood.sheet1.get_all_values()
     average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
