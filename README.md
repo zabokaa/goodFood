@@ -63,6 +63,10 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 - You can search for all food entries on a specific date.
 - The results will be displayed in a table.
 
+### Future Features
+
+- As a user, I would like to have an option to visually represent the change in feelings for a specific type of food. I tried to incorporate a plot using matplotlib, but it did not work out with Heroku. Although I could save the plot as a PNG, it was not feasible to display it within the console-based interface.
+
 ## Code Structure
 
 The code is structured into the following functions:
@@ -82,13 +86,15 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 - Feeling: This column stores the user's feeling after consuming the food. It's an integer value between 1 and 5, where 1 represents feeling good and 5 represents feeling bad. This value is also input by the user.
 - Date: This column stores the date when the food was consumed. It's a string value in the format "dd/mm/yyyy", and it's automatically set to the current date when a new food entry is added.
 
-### Future Features
-
-- As a user, I would like to have an option to visually represent the change in feelings for a specific type of food. I tried to incorporate a plot using matplotlib, but it did not work out with Heroku. Although I could save the plot as a PNG, it was not feasible to display it within the console-based interface.
-
 ## Testing
 
+### Bugs
+
+- I encountered an issue where the date, stored as a string in my worksheet, was being saved with a leading apostrophe. So my delete_food_entry function did not work and displayed "No entries found for {food_type} on {date}". I discovered that this was a formatting issue with Google Sheets. So I changed the format to "Plain Text" --> solved.
+
 ## Technologies
+
+Python3 with libraries: gspread google-auth-oauthlib google-auth-httplib2 google-auth prettytable
 
 ## Project Status
 
