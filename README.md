@@ -64,7 +64,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 ## Code Structure
 
-The code is structured into the folowing functions:
+The code is structured into the following functions:
 
 - menu(): Displays the menu and handles the user's choice.
 - add_food_entry(): Adds a new food entry.
@@ -73,6 +73,9 @@ The code is structured into the folowing functions:
 - search_by_date(): Searches for food entries by date.
 - print_with_frame(): Prints messages with a frame.
 
+### Future Features
+
+- As a user, I would like to have an option to visually represent the change in feelings for a specific type of food. I tried to incorporate a plot using matplotlib, but it did not work out with Heroku. Although I could save the plot as a PNG, it was not feasible to display it within the console-based interface.
 
 ## Testing
 
