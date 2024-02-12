@@ -90,9 +90,12 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - ### Input Validation and Error-Checking
 
-![validation1](img/vali1.png)
+![validation2](img/vali2.png)
 
 - food type input has to be letters (checked for that in all functions)
+
+![validation1](img/vali1.png)
+
 - feeling has to be a number in the range 1-5
 
 ![validation2](img/vali3.png)
