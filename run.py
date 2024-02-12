@@ -113,7 +113,7 @@ def delete_food_entry():
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
 
-    print(f"You deleted the entries for {food_type} on {date}")
+    print(f"You deleted the entry/entries for {food_type} on {date}")
 
 def search_by_date():
     """
