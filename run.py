@@ -35,6 +35,7 @@ def menu():
     # Loop to keep the menu running
     while True:
         print( "\nWhat do you want to do? \n")  
+        print( "\nChoose the according number between 1 and 5 \n")  
         print( "1. Add a new food entry")  
         print( "2. See the average feeling of a type of food you ate")  
         print( "3. Delete one food entry")  
