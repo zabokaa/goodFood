@@ -166,8 +166,12 @@ def search_by_date():
         print(f"No entries found on {date}")
         return
     
+    # Create a table to display the results:
+    table = PrettyTable()
+    table.field_names = ["Food", "Feeling"]
     for row in matching_rows:
-        print(f"Food: {row[0]}, Feeling: {row[1]}")
+        table.add_row([row[0], row[1]])
+    print(table)
 
 # Call the menu function to run the programme
 menu()
