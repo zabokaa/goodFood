@@ -50,7 +50,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 ![newfood](img/one.png)
 
-- You can add a new food entry with the type of food, your feeling after eating the food (on a scale of 1 to 5).
+- You can add a new food entry with the type of food, and your feeling after eating the food (on a scale of 1 to 5).
 - The current date will be stored automatically.
 
 ### See the average feeling of a typ of food you ate
