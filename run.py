@@ -94,7 +94,7 @@ def add_food_entry():
     new_row = [food, feeling, date]
     goodfood.sheet1.append_row(new_row)
 
-    print(f"You added {food} to the food tracker with a value of {feeling} on {date}.")
+    print_with_frame(f"You added {food} to the food tracker with a value of {feeling} on {date}.")
 
 def average_feeling():
     """
@@ -112,7 +112,7 @@ def average_feeling():
     # debug ZeroDivisionError:
     if len(matching_rows) > 0:
         average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
-        print(f"The average feeling for {food_type} is {average_feeling}")
+        print_with_frame(f"The average feeling for {food_type} is {average_feeling}")
     else:
         print(f"No entries found for {food_type}")
     
@@ -146,7 +146,7 @@ def delete_food_entry():
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
 
-    print(f"You deleted the entry/entries for {food_type} on {date}")
+    print_with_frame(f"You deleted the entry/entries for {food_type} on {date}")
 
 def search_by_date():
     """
@@ -172,6 +172,14 @@ def search_by_date():
     for row in matching_rows:
         table.add_row([row[0], row[1]])
     print(table)
+
+def print_with_frame(message):
+    """
+    Print messages with a frame 
+    """
+    print('+' + '-' * (len(message) + 2) + '+')
+    print('| ' + message + ' |')
+    print('+' + '-' * (len(message) + 2) + '+')
 
 # Call the menu function to run the programme
 menu()
