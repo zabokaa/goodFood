@@ -104,6 +104,21 @@ Project is: finished
 
 ## Deployment
 
+### Preparing for Heroku
+
+- Ensure all input has a newline character (`\n`) in the formatted string (f-string).
+- To generate a list of project dependencies, use the following command in the terminal: `pip3 freeze > requirements.txt`.
+
+### On Heroku
+
+1. Create a new app by clicking on "New" > "Create new app", enter the app name (e.g., "goodfood"), and click "Create app".
+2. Navigate to "Settings" > "Config Vars" and click "Reveal Config Vars". Add the configuration data because Heroku requires it. To do this, add a new variable with the key as `CREDITS` and the value as the content of your `creds.json` file from VS Code.
+3. Add buildpacks. It's important to add Python before Node.js (as demonstrated in the "love sandwich" project demo).
+4. Navigate to the "Deploy" section.
+5. Connect with GitHub and enter your repository name.
+6. Decide if you want to deploy manually or enable automatic deployment after every commit to GitHub.
+7. Once done, your application will be live at: `https://goodfood-bab2ce8696d3.herokuapp.com/`. Yippie !
+
 ## Acknowledgements
 
 This project was based on full-stack course @ Code Institute.
