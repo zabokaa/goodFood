@@ -118,7 +118,14 @@ def delete_food_entry():
             break
         else:
             print("You can only enter letters. Pls, try again.\n")
-    date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
+
+    while True:
+        date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
+        try:
+            datetime.strptime(date, "%d/%m/%Y")
+            break
+        except ValueError:
+            print("Invalid date. The date should be in the dd/mm/yyyy format.")
     rows = goodfood.sheet1.get_all_values()
     # iterating over a list and access indeces
     matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type.strip() and row[2].strip() == date]
