@@ -103,7 +103,7 @@ def delete_food_entry():
     date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
     rows = goodfood.sheet1.get_all_values()
     # iterating over a list and access indeces
-    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type and row[2].strip() == date]
+    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type.strip() and row[2].strip() == date]
 
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
