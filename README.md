@@ -92,6 +92,8 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - I encountered an issue where the date, stored as a string in my worksheet, was being saved with a leading apostrophe. So my delete_food_entry function did not work and displayed "No entries found for {food_type} on {date}". I discovered that this was a formatting issue with Google Sheets. So I changed the format to "Plain Text" --> solved.
 
+- Given that Python is case-sensitive, I have incorporated the capitalize() function to all user inputs for the food type. This ensures consistency in data entry regardless of how the user inputs the food type.
+
 ## Technologies
 
 Python3 with libraries: gspread google-auth-oauthlib google-auth-httplib2 google-auth prettytable
