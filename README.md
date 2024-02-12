@@ -90,7 +90,7 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - ### Input Validation and Error-Checking
 
-- [PEP8]: No errors
+- [PEP8]: No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 - Tested in Code Institute Heroku terminal and in my VS Code terminal while coding
 
