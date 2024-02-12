@@ -70,7 +70,7 @@ def add_food_entry():
     """
     Add a new food entry to the food tracker
     """
-    food = input("Please enter the type of food you ate: \n")
+    food = input("Please enter the type of food you ate: \n").capitalize()
     feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n")
     date = datetime.now().strftime("%d/%m/%Y")
 
@@ -85,7 +85,7 @@ def average_feeling():
     Calculate the average feeling of a type of food
     """
     matching_rows = []
-    food_type = input("Please enter the type of food you want to see the average feeling for: \n")
+    food_type = input("Please enter the type of food you want to see the average feeling for: \n").capitalize()
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
     # debug ZeroDivisionError:
@@ -99,7 +99,7 @@ def delete_food_entry():
     """
     Delete a food entry from the food tracker choose by name and date
     """
-    food_type = input("Please enter the type of food you want to delete: \n")
+    food_type = input("Please enter the type of food you want to delete: \n").capitalize()
     date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
     rows = goodfood.sheet1.get_all_values()
     # iterating over a list and access indeces
