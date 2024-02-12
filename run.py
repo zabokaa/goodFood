@@ -32,36 +32,39 @@ def menu():
     """
     Menu for the programme
     """
-    print( "\nWhat do you want to do? \n")  
-    print( "1. Add a new food entry")  
-    print( "2. See the average feeling of a type of food you ate")  
-    print( "3. Delete one food entry")  
-    print( "4. Search for food entries by date")
-    print( "5. Exit")  
-    # validation:
+    # Loop to keep the menu running
     while True:
-            try:
-                menu_choice = int(input("Enter your choice: "))
-                if menu_choice > 0 and menu_choice < 6:
-                    break
-                else:
+        print( "\nWhat do you want to do? \n")  
+        print( "1. Add a new food entry")  
+        print( "2. See the average feeling of a type of food you ate")  
+        print( "3. Delete one food entry")  
+        print( "4. Search for food entries by date")
+        print( "5. Exit")  
+    # validation:
+        while True:
+                try:
+                    menu_choice = int(input("Enter your choice: "))
+                    if menu_choice > 0 and menu_choice < 6:
+                        break
+                    else:
+                        print("You can only enter values from 1 to 5. Try again.\n")
+                except ValueError:
                     print("You can only enter values from 1 to 5. Try again.\n")
-            except ValueError:
-                print("You can only enter values from 1 to 5. Try again.\n")
 
-    """
-        Choose the function to run based on the user's choice and call it
-    """
-    if menu_choice == 1:  
-        add_food_entry()
-    elif menu_choice == 2:
-        average_feeling()
-    elif menu_choice == 3:
-        delete_food_entry()
-    elif menu_choice == 4:
-        search_by_date()
-    elif menu_choice == 5:
-        print("Have a lovely day and see you soon!")
+        """
+            Choose the function to run based on the user's choice and call it
+        """
+        if menu_choice == 1:  
+            add_food_entry()
+        elif menu_choice == 2:
+            average_feeling()
+        elif menu_choice == 3:
+            delete_food_entry()
+        elif menu_choice == 4:
+            search_by_date()
+        elif menu_choice == 5:
+            print("Have a lovely day and see you soon!")
+            break
 
 def add_food_entry():
     """
