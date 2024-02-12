@@ -21,7 +21,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 - As a user, I want to see the average feeling of a type of food I ate so that I can understand how different foods affect my mood and well-being.
 
-- - As a user, I want to delete a food entry so that I can correct mistakes or remove entries that are no longer relevant.
+- As a user, I want to delete a food entry so that I can correct mistakes or remove entries that are no longer relevant.
 
 - As a user, I want to search for food entries by date so that I can review what I ate and how I felt on a specific day.
 
@@ -32,6 +32,8 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 - As a user, I want to interact with a menu so that I can easily choose the operation I want to perform.
 
 - As a user, I want to see validation messages when I enter invalid input so that I can correct my mistakes and learn how to use the application correctly.
+
+- As a user, I want the input for food type to be case-insensitive, so I don't have to worry about the capitalization of my entries.
 
 - As a user, I want to see a table of search results so that I can easily understand and review the data.
 
@@ -55,6 +57,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 ### Search for food entries by day
 
 - You can search for all food entries on a specific date.
+- The results will be displayed in a table.
 
 ## Testing
 
