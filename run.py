@@ -53,9 +53,9 @@ def menu():
         Choose the function to run based on the user's choice and call it
     """
     if menu_choice == 1:  
-          add_food_entry()
+        add_food_entry()
     elif menu_choice == 2:
-          average_feeling()
+        average_feeling()
     elif menu_choice == 3:
         delete_food_entry()
     elif menu_choice == 4:
