@@ -63,7 +63,7 @@ def menu():
         elif menu_choice == 4:
             search_by_date()
         elif menu_choice == 5:
-            print("Have a lovely day and see you soon!")
+            print("Have a lovely day, eat good food and see you soon!")
             break
 
 def add_food_entry():
@@ -103,7 +103,7 @@ def delete_food_entry():
     date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
     rows = goodfood.sheet1.get_all_values()
     # iterating over a list and access indeces
-    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type and row[2] == date]
+    matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type and row[2].strip() == date]
 
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
