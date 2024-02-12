@@ -25,33 +25,35 @@ goodfood = client.open("goodfood")
 
 print("Welcome to your food tracker GOOD FOOD!")
 
-def menu():  
+
+def menu():
     """
     Menu for the programme
     """
     while True:
-        print( "\nWhat do you want to do? \n")  
-        print( "Choose the according number between 1 and 5 \n")  
-        print( "1. Add a new food entry")  
-        print( "2. See the average feeling of a type of food you ate")  
-        print( "3. Delete one food entry")  
-        print( "4. Search for food entries by date")
-        print( "5. Exit")  
+        print("\nWhat do you want to do? \n")
+        print("Choose the according number between 1 and 5 \n")
+        print("1. Add a new food entry")
+        print("2. See the average feeling of a type of food you ate")
+        print("3. Delete one food entry")
+        print("4. Search for food entries by date")
+        print("5. Exit")
 
         while True:
-                try:
-                    menu_choice = int(input("Enter your choice: "))
-                    if menu_choice > 0 and menu_choice < 6:
-                        break
-                    else:
-                        print("You can only enter values from 1 to 5. Try again.\n")
-                except ValueError:
-                    print("You can only enter values from 1 to 5. Try again.\n")
+            try:
+                menu_choice = int(input("Enter your choice: "))
+                if menu_choice > 0 and menu_choice < 6:
+                    break
+                else:
+                    print("You can only enter values from 1 to 5. "
+                          "Try again.\n")
+            except ValueError:
+                print("You can only enter values from 1 to 5. Try again.\n")
 
         """
             Choose the function to run based on the user's choice and call it
         """
-        if menu_choice == 1:  
+        if menu_choice == 1:
             add_food_entry()
         elif menu_choice == 2:
             average_feeling()
@@ -60,8 +62,10 @@ def menu():
         elif menu_choice == 4:
             search_by_date()
         elif menu_choice == 5:
-            print_with_frame("Have a lovely day, eat good food and see you soon!")
+            print_with_frame("Have a lovely day, eat good food "
+                             "and see you soon!")
             break
+
 
 def add_food_entry():
     """
@@ -75,20 +79,22 @@ def add_food_entry():
             print("You can only enter letters. Pls, try again.\n")
 
     while True:
-                try:
-                    feeling = int(input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n"))
-                    if feeling > 0 and feeling < 6:
-                        break
-                    else:
-                        print("You can only enter values from 1 to 5. Pls try again.\n")
-                except ValueError:
-                    print("You can only enter values from 1 to 5. Pls try again.\n")
-   
+        try:
+            feeling = int(input("How did you feel after eating the food? "
+                                "Please enter a number between 1=feeling good and 5= bad feeling: \n"))
+            if feeling > 0 and feeling < 6:
+                break
+            else:
+                print("You can only enter values from 1 to 5. "
+                      "Pls try again.\n")
+        except ValueError:
+            print("You can only enter values from 1 to 5. Pls try again.\n")
     date = datetime.now().strftime("%d/%m/%Y")
     new_row = [food, feeling, date]
     goodfood.sheet1.append_row(new_row)
+    print_with_frame(f"You added {food} to the food tracker with a value "
+                     "of {feeling} on {date}.")
 
-    print_with_frame(f"You added {food} to the food tracker with a value of {feeling} on {date}.")
 
 def average_feeling():
     """
@@ -96,20 +102,21 @@ def average_feeling():
     """
     matching_rows = []
     while True:
-        food_type = input("Please enter the type of food you want to see the average feeling for: \n").capitalize()
+        food_type = input("Please enter the type of food you want to see "
+                          "the average feeling for: \n").capitalize()
         if food_type.isalpha():
             break
         else:
             print("You can only enter letters. Pls, try again.\n")
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
-
     if len(matching_rows) > 0:
         average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
         print_with_frame(f"The average feeling for {food_type} is {average_feeling}")
     else:
         print(f"No entries found for {food_type}")
-    
+
+
 def delete_food_entry():
     """
     Delete a food entry from the food tracker choose by name and date
@@ -120,45 +127,41 @@ def delete_food_entry():
             break
         else:
             print("You can only enter letters. Pls, try again.\n")
-
     while True:
-        date = input("Please enter the date of the food entry you want to delete (dd/mm/yyyy): \n")
+        date = input("Please enter the date of the food entry "
+                     "you want to delete (dd/mm/yyyy): \n")
         try:
             datetime.strptime(date, "%d/%m/%Y")
             break
         except ValueError:
             print("Invalid date. The date should be in the dd/mm/yyyy format.")
     rows = goodfood.sheet1.get_all_values()
-
     matching_rows = [i for i, row in enumerate(rows, start=1) if row[0] == food_type.strip() and row[2].strip() == date]
-
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
         return
-
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
-
     print_with_frame(f"You deleted the entry/entries for {food_type} on {date}")
+
 
 def search_by_date():
     """
     Search for food entries by date
     """
     while True:
-        date = input("Please enter the date of the food entries you want to search for (dd/mm/yyyy): \n")
+        date = input("Please enter the date of the food entries "
+                     "you want to search for (dd/mm/yyyy): \n")
         try:
             datetime.strptime(date, "%d/%m/%Y")
             break
         except ValueError:
             print("Invalid date. The date should be in the dd/mm/yyyy format.")
-
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if row[2].strip() == date]
     if not matching_rows:
         print(f"No entries found on {date}")
         return
-    
     # Create a table to display the results:
     table = PrettyTable()
     table.field_names = ["Food", "Feeling"]
@@ -166,13 +169,15 @@ def search_by_date():
         table.add_row([row[0], row[1]])
     print(table)
 
+
 def print_with_frame(message):
     """
-    Print messages with a frame 
+    Print messages with a frame
     """
     print('+' + '-' * (len(message) + 2) + '+')
     print('| ' + message + ' |')
     print('+' + '-' * (len(message) + 2) + '+')
+
 
 # Call the menu function to run the programme
 menu()
