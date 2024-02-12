@@ -90,10 +90,16 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - ### Input Validation and Error-Checking
 
-![validation1](.img/vali1.png)
-![validation2](.img/vali2.png)
+![validation1](img/vali1.png)
 
-- [PEP8](.img/linter.png): No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
+- food type input has to be letters (checked for that in all functions)
+- feeling has to be a number in the range 1-5
+
+![validation2](img/vali2.png)
+
+- date input has to be in the correct format
+
+- [PEP8](img/linter.png): No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 - Tested in Code Institute Heroku terminal and in my VS Code terminal while coding
 
