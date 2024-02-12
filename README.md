@@ -88,6 +88,12 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 ## Testing
 
+- ### Input Validation and Error-Checking
+
+- [PEP8]: No errors
+
+- Tested in Code Institute Heroku terminal and in my VS Code terminal while coding
+
 ### Bugs
 
 - I encountered an issue where the date, stored as a string in my worksheet, was being saved with a leading apostrophe. So my delete_food_entry function did not work and displayed "No entries found for {food_type} on {date}". I discovered that this was a formatting issue with Google Sheets. So I changed the format to "Plain Text" --> solved.
