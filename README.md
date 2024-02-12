@@ -100,7 +100,7 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - Given that Python is case-sensitive, I have incorporated the capitalize() function to all user inputs for the food type. This ensures consistency in data entry regardless of how the user inputs the food type.
 
-_ After formatting (PEP8) e.g the Average function did not work anymore. The problem has been that I divided the lines but did not know that I have to add another f in the second line for f-strings `print_with_frame(f"The average feeling for {food_type} "
+- After formatting (PEP8) e.g the Average function did not work anymore. The problem has been that I divided the lines but did not know that I have to add another f in the second line for f-strings `print_with_frame(f"The average feeling for {food_type} "
                          f"is {av_feeling}")` --> solved.
 
 ## Technologies
