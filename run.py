@@ -1,6 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
 from datetime import datetime
+from prettytable import PrettyTable
 import os
 import json
 
