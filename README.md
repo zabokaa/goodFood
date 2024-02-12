@@ -1,5 +1,7 @@
 # :purple_circle: *Good Food* :purple_circle:
 
+GoodFood Tracker is a Python application that interacts with Google Sheets to track your food intake and feelings associated with it. It provides a simple console-based interface to add, delete, and search for food entries.
+
 The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp.com/).
 
 ## Table of Contents
@@ -7,6 +9,7 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 - [Objective](#objective)
 - [User Stories](#user-stories)
 - [Key Features](#key-features)
+- [Code Structure](#code-structure)
 - [Testing](#testing)
 - [Technologies](#technologies)
 - [Deployment](#deployment)
@@ -58,6 +61,18 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 - You can search for all food entries on a specific date.
 - The results will be displayed in a table.
+
+## Code Structure
+
+The code is structured into the folowing functions:
+
+- menu(): Displays the menu and handles the user's choice.
+- add_food_entry(): Adds a new food entry.
+- average_feeling(): Calculates the average feeling for a specific type of food.
+- delete_food_entry(): Deletes a food entry.
+- search_by_date(): Searches for food entries by date.
+- print_with_frame(): Prints messages with a frame.
+
 
 ## Testing
 
