@@ -74,10 +74,14 @@ def average_feeling():
     matching_rows = []
     food_type = input("Please enter the type of food you want to see the average feeling for: \n")
     rows = goodfood.sheet1.get_all_values()
-    average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
-    matching_rows = [row for row in rows if row[0] == food_type]
-    print(f"The average feeling for {food_type} is {average_feeling}")
-
+    matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
+    # debug ZeroDivisionError:
+    if len(matching_rows) > 0:
+        average_feeling = sum(int(row[1]) for row in matching_rows) / len(matching_rows)
+        print(f"The average feeling for {food_type} is {average_feeling}")
+    else:
+        print(f"No entries found for {food_type}")
+    
 def delete_food_entry():
     """
     Delete a food entry from the food tracker
