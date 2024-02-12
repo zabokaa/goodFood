@@ -64,7 +64,7 @@ def menu():
         elif menu_choice == 4:
             search_by_date()
         elif menu_choice == 5:
-            print("Have a lovely day, eat good food and see you soon!")
+            print_with_frame("Have a lovely day, eat good food and see you soon!")
             break
 
 def add_food_entry():
