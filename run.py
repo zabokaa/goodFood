@@ -94,7 +94,7 @@ def add_food_entry():
     new_row = [food, feeling, date]
     goodfood.sheet1.append_row(new_row)
     print_with_frame(f"You added {food} to the food tracker with a value "
-                     "of {feeling} on {date}.")
+                     f"of {feeling} on {date}.")
 
 
 def average_feeling():
@@ -113,10 +113,12 @@ def average_feeling():
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [row for row in rows if str(row[0]) == str(food_type)]
     if len(matching_rows) > 0:
-        av_feeling = sum(int(row[1]) for row in matching_rows)/ len(matching_rows)
-        
+        av_feeling = (
+            sum(int(row[1]) for row in matching_rows)
+            / len(matching_rows)
+        )
         print_with_frame(f"The average feeling for {food_type} "
-                         "is {av_feeling}")
+                         f"is {av_feeling}")
     else:
         print(f"No entries found for {food_type}")
 
@@ -152,7 +154,7 @@ def delete_food_entry():
     for i in reversed(matching_rows):
         goodfood.sheet1.delete_rows(i, i)
     print_with_frame(f"You deleted the entry/entries "
-                     "for {food_type} on {date}")
+                     f"for {food_type} on {date}")
 
 
 def search_by_date():
