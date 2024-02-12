@@ -77,8 +77,16 @@ def add_food_entry():
         else:
             print("You can only enter letters. Pls, try again.\n")
 
-    
-    feeling = input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n")
+    while True:
+                try:
+                    feeling = int(input("How did you feel after eating the food? Please enter a number between 1=feeling good and 5= bad feeling: \n"))
+                    if feeling > 0 and feeling < 6:
+                        break
+                    else:
+                        print("You can only enter values from 1 to 5. Pls try again.\n")
+                except ValueError:
+                    print("You can only enter values from 1 to 5. Pls try again.\n")
+   
     date = datetime.now().strftime("%d/%m/%Y")
 
      # Create a new row of data + append to spreadsheet
