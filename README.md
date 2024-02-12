@@ -1,32 +1,35 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# :purple_circle: *Good Food* :purple_circle:
 
-Welcome,
+The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp.com/)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+## Table of Contents
 
-## Reminders
+- [Objective](#objective)
+- [User Stories](#user-stories)
+- [Key Features](#key-features)
+- [Testing](#testing)
+- [Technologies](#technologies)
+- [Deployment](#deployment)
+- [Project Status](#project-status)
+- [Acknowledgements](#acknowledgements)
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+## Objective
 
-## Creating the Heroku app
+## User Stories
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Key Features
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Testing
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+## Technologies
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Project Status
 
-Connect your GitHub repository and deploy as normal.
+Project is: finished
 
-## Constraints
+## Deployment
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Acknowledgements
 
----
-
-Happy coding!
+This project was based on full-stack course @ Code Institute.
+And an forever thank you 💜 to stackoverflow.
