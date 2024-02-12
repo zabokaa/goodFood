@@ -2,7 +2,7 @@
 
 GoodFood Tracker is a Python application that interacts with Google Sheets to track your food intake and feelings associated with it. It provides a simple console-based interface to add, delete, and search for food entries.
 
-I am part of the user group myself. To test my diet for intolerances, I need to keep a food diary. I couldn't find an app that functions as a food tracker without focusing on calories.
+I am part of the user group myself. To test my diet for intolerances, I need to keep a food diary. I couldn't find an app that functions as a food tracker without focusing on calories. Therefore, I decided to create the application myself.
 
 ![start](img/start.png)
 
