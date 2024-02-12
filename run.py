@@ -111,7 +111,7 @@ def delete_food_entry():
 
     # delete the chosen food entry, reversed to avoid index errors !
     for i in reversed(matching_rows):
-        goodfood.sheet1.delete_row(i)
+        goodfood.sheet1.delete_rows(i, i)
 
     print(f"You deleted the entries for {food_type} on {date}")
 
