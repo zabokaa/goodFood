@@ -104,8 +104,4 @@ def search_by_date():
     """
     print("You searched for food entries by date")
 
-# CALL THE FUNCTION !!
 menu()
-add_food_entry()
-average_feeling()
-delete_food_entry()
