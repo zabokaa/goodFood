@@ -124,7 +124,8 @@ def average_feeling():
 
 def delete_food_entry():
     """
-    Delete a food entry from the food tracker choose by name and date
+    Delete a food entry from the food tracker choose by name,
+    then choose one entry from the displayed ones to delete
     """
     while True:
         food_type = input("Please enter the type of "
@@ -136,7 +137,7 @@ def delete_food_entry():
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [
         (i, row) for i, row in enumerate(rows, start=1)
-        if row[0] == food_type.strip() 
+        if row[0] == food_type.strip()
         ]
     if not matching_rows:
         print(f"No entries found for {food_type}")
@@ -149,14 +150,14 @@ def delete_food_entry():
     print(table)
     while True:
         selector = input("Please enter the NUMBER of the entry "
-                           "you want to delete: \n")
+                         "you want to delete: \n")
         if selector.isdigit() and 1 <= int(selector) <= len(matching_rows):
             break
         else:
             print("Invalid number. Pls, try again.\n")
     i, row = matching_rows[int(selector) - 1]
-    date = row[2]  
-    feeling= row[1]      
+    date = row[2]
+    feeling = row[1]
     goodfood.sheet1.delete_rows(i, i)
     print_with_frame(f"You deleted the entry "
                      f"for {food_type} on {date} "
@@ -165,8 +166,7 @@ def delete_food_entry():
 
 def search_by_date():
     """
-    Search for food entries by name, 
-    then choose one entry from the displayed ones to delete
+    Search for food entries by date
     """
     while True:
         date = input("Please enter the date of the food entries "
