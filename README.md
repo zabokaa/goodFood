@@ -28,6 +28,8 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 - As a user, I want to delete a food entry so that I can correct mistakes or remove entries that are no longer relevant.
 
+- As a user, I want to view all entries for a specific food type, so I can choose which one to delete without needing to remember details such as the date.
+
 - As a user, I want to search for food entries by date so that I can review what I ate and how I felt on a specific day.
 
 - As a user, I want to exit the application so that I can end my session when I'm done using the food tracker.
@@ -63,7 +65,9 @@ The deployed version can be found [here](https://goodfood-bab2ce8696d3.herokuapp
 
 ![del](img/three.png)
 
-- You can delete a food entry by specifying the type of food and the date of the entry.
+- You can delete a food entry by specifying the type of food.
+- All results for that type of food will be displayed along with their date and feeling value and a NUMBER.
+- You can chose the entry you want to be deleted by inputting the NUMBER.
 
 ### Search for food entries by day
 
@@ -159,4 +163,5 @@ Project is: finished
 ## Acknowledgements
 
 This project was based on full-stack course @ Code Institute.
+
 And an forever thank you 💜 to stackoverflow.
