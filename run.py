@@ -146,15 +146,15 @@ def delete_food_entry():
     for selector, (i, row) in enumerate(matching_rows, start=1):
         print(f"{selector}. {row[0]} - {row[2]}")
     while True:
-        row_number = input("Please enter the number of the entry "
+        selector = input("Please enter the number of the entry "
                            "you want to delete: \n")
-        if row_number.isdigit() and 1 <= int(row_number) <= len(matching_rows):
+        if selector.isdigit() and 1 <= int(selector) <= len(matching_rows):
             break
         else:
             print("Invalid number. Pls, try again.\n")
-    i, row = matching_rows[int(row_number) - 1]
-    date = rows[int(row_number)][2]
-    goodfood.sheet1.delete_rows(int(row_number), int(row_number))
+    i, row = matching_rows[int(selector) - 1]
+    date = row[2]          #date is from matching_rows
+    goodfood.sheet1.delete_rows(i, i)
     print_with_frame(f"You deleted the entry/entries "
                      f"for {food_type} on {date}")
 
