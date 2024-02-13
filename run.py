@@ -153,10 +153,12 @@ def delete_food_entry():
         else:
             print("Invalid number. Pls, try again.\n")
     i, row = matching_rows[int(selector) - 1]
-    date = row[2]          #date is from matching_rows
+    date = row[2]  
+    feeling= row[1]      
     goodfood.sheet1.delete_rows(i, i)
     print_with_frame(f"You deleted the entry/entries "
-                     f"for {food_type} on {date}")
+                     f"for {food_type} on {date} "
+                     f"with the value of {feeling}")
 
 
 def search_by_date():
