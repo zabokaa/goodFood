@@ -13,7 +13,6 @@ SCOPE = [
 ]
 
 # Use the credentials file to authorize the application
-
 creds_json = os.environ.get('CREDITS')
 creds_dict = json.loads(creds_json)
 CREDITS = Credentials.from_service_account_info(creds_dict)
@@ -144,12 +143,12 @@ def delete_food_entry():
         return
     print("Here are all the entries for this food type:")
     table = PrettyTable()
-    table.field_names = ["Number", "Food", "Date", "Feeling"]
+    table.field_names = ["NUMBER", "Food", "Date", "Feeling"]
     for selector, (i, row) in enumerate(matching_rows, start=1):
         table.add_row([selector, row[0], row[2], row[1]])
     print(table)
     while True:
-        selector = input("Please enter the number of the entry "
+        selector = input("Please enter the NUMBER of the entry "
                            "you want to delete: \n")
         if selector.isdigit() and 1 <= int(selector) <= len(matching_rows):
             break
@@ -159,7 +158,7 @@ def delete_food_entry():
     date = row[2]  
     feeling= row[1]      
     goodfood.sheet1.delete_rows(i, i)
-    print_with_frame(f"You deleted the entry/entries "
+    print_with_frame(f"You deleted the entry "
                      f"for {food_type} on {date} "
                      f"with the value of {feeling}")
 
