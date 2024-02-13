@@ -134,22 +134,13 @@ def delete_food_entry():
             break
         else:
             print("You can only enter letters. Pls, try again.\n")
-    while True:
-        date = input("Please enter the date of the food entry "
-                     "you want to delete (dd/mm/yyyy): \n")
-        try:
-            datetime.strptime(date, "%d/%m/%Y")
-            break
-        except ValueError:
-            print("Invalid date. The date should "
-                  "be in the dd/mm/yyyy format.")
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [
         i for i, row in enumerate(rows, start=1)
-        if row[0] == food_type.strip() and row[2].strip() == date
+        if row[0] == food_type.strip() 
         ]
     if not matching_rows:
-        print(f"No entries found for {food_type} on {date}")
+        print(f"No entries found for {food_type}")
         return
     print("Here are all the entries for this food type:")
     for i, row in matching_rows:
@@ -161,6 +152,7 @@ def delete_food_entry():
             break
         else:
             print("Invalid number. Pls, try again.\n")
+    date = rows[int(row_number)][2]
     goodfood.sheet1.delete_rows(int(row_number), int(row_number))
     print_with_frame(f"You deleted the entry/entries "
                      f"for {food_type} on {date}")
