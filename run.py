@@ -136,7 +136,7 @@ def delete_food_entry():
             print("You can only enter letters. Pls, try again.\n")
     rows = goodfood.sheet1.get_all_values()
     matching_rows = [
-        i for i, row in enumerate(rows, start=1)
+        (i, row) for i, row in enumerate(rows, start=1)
         if row[0] == food_type.strip() 
         ]
     if not matching_rows:
@@ -144,7 +144,7 @@ def delete_food_entry():
         return
     print("Here are all the entries for this food type:")
     for i, row in matching_rows:
-        print(f"{i}. {row[0]} - {row[1]}")
+        print(f"{i}. {row[0]} - {row[2]}")
     while True:
         row_number = input("Please enter the number of the entry "
                            "you want to delete: \n")
