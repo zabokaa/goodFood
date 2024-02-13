@@ -143,8 +143,11 @@ def delete_food_entry():
         print(f"No entries found for {food_type}")
         return
     print("Here are all the entries for this food type:")
+    table = PrettyTable()
+    table.field_names = ["Number", "Food", "Date", "Feeling"]
     for selector, (i, row) in enumerate(matching_rows, start=1):
-        print(f"{selector}. {row[0]} - {row[2]} - {row[1]}")
+        table.add_row([selector, row[0], row[2], row[1]])
+    print(table)
     while True:
         selector = input("Please enter the number of the entry "
                            "you want to delete: \n")
