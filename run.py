@@ -148,10 +148,11 @@ def delete_food_entry():
     while True:
         row_number = input("Please enter the number of the entry "
                            "you want to delete: \n")
-        if row_number.isdigit() and int(row_number) in matching_rows:
+        if row_number.isdigit() and 1 <= int(row_number) <= len(matching_rows):
             break
         else:
             print("Invalid number. Pls, try again.\n")
+    i, row = matching_rows[int(row_number) - 1]
     date = rows[int(row_number)][2]
     goodfood.sheet1.delete_rows(int(row_number), int(row_number))
     print_with_frame(f"You deleted the entry/entries "
