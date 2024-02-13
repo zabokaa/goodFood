@@ -122,6 +122,10 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - date input has to be in the correct format
 
+![dataset](img/pizza.png)
+
+- food type is not in the dataset
+
 - [PEP8](img/linter.png): No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
 - Tested in Code Institute Heroku terminal and in my VS Code terminal while coding
