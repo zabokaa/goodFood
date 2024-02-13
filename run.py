@@ -144,7 +144,7 @@ def delete_food_entry():
         return
     print("Here are all the entries for this food type:")
     for i, row in matching_rows:
-        print(f"{i}. {row[0]} - {row[2]}")
+        print(f"{i}. {row[0]} - {row[1][2]}")
     while True:
         row_number = input("Please enter the number of the entry "
                            "you want to delete: \n")
