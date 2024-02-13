@@ -148,7 +148,7 @@ def delete_food_entry():
     while True:
         row_number = input("Please enter the number of the entry "
                            "you want to delete: \n")
-        if row_number.isdigit() and int(row_number) in [i for i, _ in matching_rows]:
+        if row_number.isdigit() and int(row_number) in matching_rows:
             break
         else:
             print("Invalid number. Pls, try again.\n")
@@ -160,7 +160,8 @@ def delete_food_entry():
 
 def search_by_date():
     """
-    Search for food entries by date
+    Search for food entries by name, 
+    then choose one entry from the displayed ones to delete
     """
     while True:
         date = input("Please enter the date of the food entries "
