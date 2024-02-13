@@ -151,8 +151,17 @@ def delete_food_entry():
     if not matching_rows:
         print(f"No entries found for {food_type} on {date}")
         return
-    for i in reversed(matching_rows):
-        goodfood.sheet1.delete_rows(i, i)
+    print("Here are all the entries for this food type:")
+    for i, row in matching_rows:
+        print(f"{i}. {row[0]} - {row[2]}")
+    while True:
+        row_number = input("Please enter the number of the entry "
+                           "you want to delete: \n")
+        if row_number.isdigit() and int(row_number) in [i for i, _ in matching_rows]:
+            break
+        else:
+            print("Invalid number. Pls, try again.\n")
+    goodfood.sheet1.delete_rows(int(row_number), int(row_number))
     print_with_frame(f"You deleted the entry/entries "
                      f"for {food_type} on {date}")
 
