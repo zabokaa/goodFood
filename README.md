@@ -110,21 +110,21 @@ The data for the GoodFood Tracker is stored in a Google Sheets document. Each ro
 
 - ### Input Validation and Error-Checking
 
+- food type input has to be letters (checked for that in all functions):
+
 ![validation2](img/vali2.png)
 
-- food type input has to be letters (checked for that in all functions)
+- feeling has to be a number in the range 1-5:
 
 ![validation1](img/vali1.png)
 
-- feeling has to be a number in the range 1-5
+- date input has to be in the correct format:
 
 ![validation2](img/vali3.png)
 
-- date input has to be in the correct format
+- food type is not in the dataset:
 
 ![dataset](img/pizza.png)
-
-- food type is not in the dataset
 
 - [PEP8](img/linter.png): No errors, using [CI Python Linter](https://pep8ci.herokuapp.com/)
 
