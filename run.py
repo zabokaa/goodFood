@@ -22,9 +22,10 @@ client = gspread.authorize(SCOPED_CREDS)
 # Accessing the Google Sheets
 goodfood = client.open("goodfood")
 
+# Print a welcome message
 print("Welcome to your food tracker GOOD FOOD!")
 
-
+# Functions
 def menu():
     """
     Menu for the programme
@@ -181,7 +182,6 @@ def search_by_date():
     if not matching_rows:
         print(f"No entries found on {date}")
         return
-    # Create a table to display the results:
     table = PrettyTable()
     table.field_names = ["Food", "Feeling"]
     for row in matching_rows:
@@ -198,5 +198,5 @@ def print_with_frame(message):
     print('+' + '-' * (len(message) + 2) + '+')
 
 
-# Call the menu function to run the programme
+# Call the menu function to run the program
 menu()
